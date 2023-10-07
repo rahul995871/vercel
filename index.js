@@ -1,0 +1,38 @@
+const cors=require('cors')
+const corsOptions ={
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200,
+}
+
+
+const mongoose = require('mongoose');
+require('dotenv').config()
+const express = require("express");
+const server = express();
+server.use(cors(corsOptions))
+server.use(express.json());
+server.use(express.static('dist'))
+const productsRouter=require('./routes/product')
+const productsController = require("./controller/product");
+console.log(process.env.PORT)
+
+
+server.use('/products',productsRouter.router)
+
+// ---db--
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb+srv://rahul995871:JPMvUGDuFAYgHzVq@cluster0.kyzxbuo.mongodb.net/');
+
+  console.log("connection succesfull....")
+}
+
+
+
+
+server.listen(process.env.PORT, (req, res) => {
+  console.log("Server is runing..");
+});
+
