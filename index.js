@@ -12,8 +12,9 @@ const express = require("express");
 const server = express();
 server.use(cors(corsOptions))
 server.use(express.json());
-server.use(express.static('dist'))
 path.join('dist','html')
+server.use(express.static('dist'))
+
 const productsRouter=require('./routes/product')
 const productsController = require("./controller/product");
 console.log(process.env.PORT)
