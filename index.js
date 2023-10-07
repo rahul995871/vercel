@@ -5,7 +5,7 @@ const corsOptions ={
   optionSuccessStatus:200,
 }
 
-
+const path=require('path')
 const mongoose = require('mongoose');
 require('dotenv').config()
 const express = require("express");
@@ -13,6 +13,7 @@ const server = express();
 server.use(cors(corsOptions))
 server.use(express.json());
 server.use(express.static('dist'))
+path.join('dist','html')
 const productsRouter=require('./routes/product')
 const productsController = require("./controller/product");
 console.log(process.env.PORT)
