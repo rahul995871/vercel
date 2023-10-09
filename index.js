@@ -13,7 +13,7 @@ const server = express();
 server.use(cors(corsOptions))
 server.use(express.json());
 // path.join('dist','html')
-server.use(express.static('public'))
+server.use(express.static('dist'))
 
 const productsRouter=require('./routes/product')
 const productsController = require("./controller/product");
