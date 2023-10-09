@@ -4,12 +4,12 @@ const corsOptions ={
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200,
 }
-
+const express = require("express");
+const server = express();
 const path=require('path')
 const mongoose = require('mongoose');
 require('dotenv').config()
-const express = require("express");
-const server = express();
+
 server.use(cors(corsOptions))
 server.use(express.json());
 // path.join('dist','html')
