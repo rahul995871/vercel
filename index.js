@@ -4,18 +4,17 @@ const corsOptions ={
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200,
 }
-const express = require("express");
-const server = express();
+
 const path=require('path')
 const mongoose = require('mongoose');
 require('dotenv').config()
-
+const express = require("express");
+const server = express();
 server.use(cors(corsOptions))
 server.use(express.json());
 // path.join('dist','html')
-server.use(express.static(path.resolve(__dirname,'dist')))
+server.use(express.static('public'))
 
-server.use(express.static(path.resolve(__dirname,'dist','index.html')))
 const productsRouter=require('./routes/product')
 const productsController = require("./controller/product");
 console.log(process.env.PORT)
