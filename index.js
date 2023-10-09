@@ -14,7 +14,7 @@ server.use(cors(corsOptions))
 server.use(express.json());
 // path.join('dist','html')
 server.use(express.static('dist'))
-server.use(path.resolve(__dirname,'dist','index.html'))
+server.use(express.static(path.resolve(__dirname,'dist','index.html')))
 
 const productsRouter=require('./routes/product')
 const productsController = require("./controller/product");
