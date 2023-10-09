@@ -18,9 +18,10 @@ server.use(express.json());
 const productsRouter=require('./routes/product')
 const productsController = require("./controller/product");
 console.log(process.env.PORT)
-// server.use('*',()=>{
-  
-// })
+
+server.use('*',(req,res)=>{
+  res.sendFile(path.resolve(__dirname,'dist','index.html'))
+})
 
 
 server.use('/products',productsRouter.router)
