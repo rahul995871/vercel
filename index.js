@@ -40,7 +40,11 @@ async function main() {
   console.log("connection succesfull....")
 }
 
+server.use(express.static(path.resolve(__dirname,'public')));
 
+server.use('*',(req,res)=>{
+  res.sendFile(path.resolve(__dirname,'dist','index.html'))
+})
 
 
 server.listen(process.env.PORT, (req, res) => {
