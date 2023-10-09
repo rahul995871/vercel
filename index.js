@@ -34,8 +34,8 @@ server.use('/products',productsRouter.router)
 main().catch(err => console.log(err));
 
 async function main() {
-  // await mongoose.connect('mongodb+srv://rahul995871:JPMvUGDuFAYgHzVq@cluster0.kyzxbuo.mongodb.net/');
-  await mongoose.connect('mongodb://127.0.0.1:27017/ecommerce');
+  await mongoose.connect('mongodb+srv://rahul995871:JPMvUGDuFAYgHzVq@cluster0.kyzxbuo.mongodb.net/');
+  // await mongoose.connect('mongodb://127.0.0.1:27017/ecommerce');
 
   console.log("connection succesfull....")
 }
