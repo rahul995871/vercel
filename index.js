@@ -13,15 +13,15 @@ const server = express();
 server.use(cors(corsOptions))
 server.use(express.json());
 // path.join('dist','html')
-// server.use(express.static('dist'))
+server.use(express.static('dist'))
 // server.use(path.resolve(__dirname,'dist','index.html'))
 
 const productsRouter=require('./routes/product')
 const productsController = require("./controller/product");
 console.log(process.env.PORT)
-server.use('*',(req,res)=>{
-  res.sendFile(path.resolve(__dirname,'dist','index.html'))
-})
+// server.use('*',(req,res)=>{
+//   res.sendFile(path.resolve(__dirname,'dist','index.html'))
+// })
 
 
 server.use('/products',productsRouter.router)
